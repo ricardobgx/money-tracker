@@ -1,3 +1,4 @@
 include:
   - './common-docker-compose.yml'
   - './discovery-server/core-docker-compose.yml'
+  - './reverse-proxy/core-docker-compose.yml'
