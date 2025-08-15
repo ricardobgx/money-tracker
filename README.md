@@ -8,8 +8,8 @@ This application contains the modules below:
 
 - [ ] Reverse Proxy
   - [ ] Application
-- [ ] Discovery Server
-  - [ ] Application
+- [x] Discovery Server
+  - [x] Application
 - [ ] Authorization Server
   - [ ] Database
   - [ ] Application
