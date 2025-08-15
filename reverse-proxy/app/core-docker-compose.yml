@@ -1,0 +1,14 @@
+services:
+  reverse-proxy-app:
+    container_name: money-tracker-reverse-proxy-app
+    build: .
+    image: ricardobgx/money-tracker-reverse-proxy-app
+    restart: always
+    environment:
+      REVERSE_PROXY_APP_PORT: ${MONEY_TRACKER_REVERSE_PROXY_APP_PORT}
+      REVERSE_PROXY_APP_AUTHORIZATION_SERVER_URL: ${MONEY_TRACKER_REVERSE_PROXY_APP_AUTHORIZATION_SERVER_URL}
+      REVERSE_PROXY_APP_DISCOVERY_SERVER_URL: ${MONEY_TRACKER_REVERSE_PROXY_APP_DISCOVERY_SERVER_URL}
+    networks:
+      - money-tracker-network
+    ports:
+      - ${MONEY_TRACKER_REVERSE_PROXY_APP_PORT}:${MONEY_TRACKER_REVERSE_PROXY_APP_PORT}
