@@ -1,0 +1,30 @@
+services:
+  auth-server-app:
+    container_name: money-tracker-auth-server-app
+    image: keycloak/keycloak
+    restart: always
+    command:
+      - start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${MONEY_TRACKER_AUTH_SERVER_APP_ADMIN_USER}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${MONEY_TRACKER_AUTH_SERVER_APP_ADMIN_USER}
+      KC_HTTP_PORT: ${MONEY_TRACKER_AUTH_SERVER_APP_PORT}
+      KC_HOSTNAME: ${MONEY_TRACKER_AUTH_SERVER_APP_URL}
+      KC_HTTP_RELATIVE_PATH: /auth
+      KC_HTTP_ENABLED: true
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
+      KC_DB: postgres
+      KC_DB_URL: ${MONEY_TRACKER_AUTH_SERVER_APP_DB_URL}
+      KC_DB_USERNAME: ${MONEY_TRACKER_AUTH_SERVER_APP_DB_USER}
+      KC_DB_PASSWORD: ${MONEY_TRACKER_AUTH_SERVER_APP_DB_PASS}
+    volumes:
+      - auth-server-app-data:/opt/keycloak/data
+    networks:
+      - money-tracker-network
+    ports:
+      - ${MONEY_TRACKER_AUTH_SERVER_APP_PORT}:${MONEY_TRACKER_AUTH_SERVER_APP_PORT}
+
+volumes:
+  auth-server-app-data:
+    name: money-tracker-auth-server-app-data

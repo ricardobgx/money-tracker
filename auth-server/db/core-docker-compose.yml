@@ -1,0 +1,19 @@
+services:
+  auth-server-db:
+    container_name: money-tracker-auth-server-db
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${MONEY_TRACKER_AUTH_SERVER_DB_ADMIN_USER}
+      POSTGRES_PASSWORD: ${MONEY_TRACKER_AUTH_SERVER_DB_ADMIN_PASS}
+      POSTGRES_DB: ${MONEY_TRACKER_AUTH_SERVER_DB_DB_NAME}
+    volumes:
+      - auth-server-db-data:/var/lib/postgresql/data
+    networks:
+      - money-tracker-network
+    ports:
+      - ${MONEY_TRACKER_AUTH_SERVER_DB_PORT}:5432
+
+volumes:
+  auth-server-db-data:
+    name: money-tracker-auth-server-db-data
