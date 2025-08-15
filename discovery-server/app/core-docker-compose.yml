@@ -1,0 +1,13 @@
+services:
+  discovery-server-app:
+    container_name: money-tracker-discovery-server-app
+    build: .
+    image: ricardobgx/money-tracker-discovery-server-app
+    restart: always
+    environment:
+      DISCOVERY_SERVER_APP_PORT: ${MONEY_TRACKER_DISCOVERY_SERVER_APP_PORT}
+      DISCOVERY_SERVER_APP_DISCOVERY_URL: ${MONEY_TRACKER_DISCOVERY_SERVER_APP_DISCOVERY_URL}
+    networks:
+      - money-tracker-network
+    ports:
+      - ${MONEY_TRACKER_DISCOVERY_SERVER_APP_PORT}:${MONEY_TRACKER_DISCOVERY_SERVER_APP_PORT}
