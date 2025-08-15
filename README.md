@@ -6,12 +6,12 @@ Application to track your money spend.
 
 This application contains the modules below:
 
-- [ ] Authorization Server
-  - [ ] Database
+- [ ] Reverse Proxy
   - [ ] Application
 - [ ] Discovery Server
   - [ ] Application
-- [ ] API Gateway
+- [ ] Authorization Server
+  - [ ] Database
   - [ ] Application
 - [ ] Profiles
   - [ ] Database
@@ -19,34 +19,47 @@ This application contains the modules below:
 - [ ] Transactions
   - [ ] Database
   - [ ] API
+- [ ] Web
+  - [ ] app
 
 ## Configuration
 
 ### Requirements
 
-You need to install the following on your machine:
+You need to install the following tools in your machine:
 
 - Docker
 - Docker Compose
 
 ### Environment variables
 
-You need to set the environment variables described in the README.md of each module.
+Please refer to each module's README file to set the environment variables correctly.
 
 ## Run
 
-### Start
+### DevOps
 
-To start the application You just need to run the command below on terminal in project root:
+To start the application You just need to run the command below inside this folder:
 
 ```sh
 docker compose up -d
 ```
 
-### Stop
-
-To stop the application You just need to run the command below on terminal in project root:
+To stop the application You just need to run the command below inside this folder:
 
 ```sh
 docker compose down
 ```
+
+## Ports mapping
+
+Below You'll find the ports mapping of the project:
+
+| Module               | Ports                 |
+| -------------------- | --------------------- |
+| Reverse Proxy        | 4001 (app)            |
+| Discovery Server     | 4101 (app)            |
+| Authorization Server | 4201 (db), 4202 (app) |
+| Profiles             | 4301 (db), 4302 (api) |
+| Transactions         | 4401 (db), 4402 (api) |
+| Web                  | 4501 (app)            |
