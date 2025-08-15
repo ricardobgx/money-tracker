@@ -6,8 +6,8 @@ Application to track your money spend.
 
 This application contains the modules below:
 
-- [ ] Reverse Proxy
-  - [ ] Application
+- [x] Reverse Proxy
+  - [x] Application
 - [x] Discovery Server
   - [x] Application
 - [ ] Authorization Server
