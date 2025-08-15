@@ -10,9 +10,9 @@ This application contains the modules below:
   - [x] Application
 - [x] Discovery Server
   - [x] Application
-- [ ] Authorization Server
-  - [ ] Database
-  - [ ] Application
+- [x] Authorization Server
+  - [x] Database
+  - [x] Application
 - [ ] Profiles
   - [ ] Database
   - [ ] API
